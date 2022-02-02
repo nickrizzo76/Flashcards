@@ -1,38 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "./Header";
+import DeckList from "./DeckList";
 import NotFound from "./NotFound";
-import DeckList from "./Components/DeckList";
-import { Route, Link, Switch } from "react-router-dom";
-import { listDecks } from "../utils/api";
+import { Route, Switch, Link } from "react-router-dom";
 
 function Layout() {
-  const [decks, setDecks] = useState({});
-  
-  useEffect(() => {
-
-    async function loadData() {
-      const data = await listDecks();
-      //console.log(data)
-      setDecks(data)
-    }
-    loadData();
-  }, [])
-
-  //console.log(decks)
   return (
     <>
       <Header />
       <div className="container">
         <Switch>
-          <Route exact={true} path='/'>
-            <button>Create Deck</button>
+          <Route exact={true} path="/">
+            <Link to="decks/new">
+              <button type="button" className="btn btn-secondary">Create Deck</button>
+            </Link>
+            <DeckList />
           </Route>
           <Route>
-            <h1>404</h1>
+            <NotFound />
           </Route>
         </Switch>
-
-        <DeckList decks={decks}/>
       </div>
     </>
   );
