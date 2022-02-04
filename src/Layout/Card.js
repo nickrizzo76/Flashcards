@@ -14,6 +14,7 @@ function Card({ card, nextCardHandler }) {
 
   const nextHandler = () => {
       setIsFlipped(false);
+      setCardHasBeenStudied(false);
       nextCardHandler();
   }
 
