@@ -7,6 +7,7 @@ import Breadcrumb from "./Breadcrumb";
 import { Route, Switch, Link } from "react-router-dom";
 import { listDecks } from "../utils/api";
 import DeckCreate from "./DeckCreate";
+import DeckStudy from "./DeckStudy";
 
 function Layout() {
 
@@ -34,9 +35,9 @@ function Layout() {
             <Breadcrumb />
             <DeckCreate />
           </Route>
-          {/* <Route path="/decks/:deckId/study">
-
-          </Route> */}
+          <Route path="/decks/:deckId/study">
+            <DeckStudy decks={decks}/>
+          </Route>
           <Route>
             <NotFound />
           </Route>
