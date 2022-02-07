@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Deck from "./Deck";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import { deleteDeck, listDecks } from "../utils/api";
 
-function DeckList({decks}) {
+function DeckList() {
   
+  const [decks, setDecks] = useState([]);
 
-  const deckList = decks.map( deck => <Deck key={deck.id} deck={deck} />);
+  useEffect(loadDecks, []);
+
+   function loadDecks() {
+    listDecks().then(setDecks);
+  }
+
+  function deleteHandler(deckId) {
+    const confirmed = window.confirm("Delete this deck?\n\nYou will not be able to recover it.")
+    if(confirmed) deleteDeck(deckId).then(loadDecks)
+  }
+
+  const lastDeckId = decks.reduce((maxId, deck) => Math.max(maxId, deck.id), 0);
+
+  const deckList = decks.map( deck => <Deck key={deck.id} deck={deck} deleteHandler={deleteHandler}/>);
   return (
     <>
       {deckList}
@@ -14,13 +28,3 @@ function DeckList({decks}) {
 }
 
 export default DeckList;
-
-// {/* <Switch>
-//         <Route path={`${path}`}>
-//           {/* {deckList} */}
-//           </Route>
-//           <Route path={`${path}/new`}>
-//             <CreateDeck />
-//           </Route>
-          
-//         </Switch> */}

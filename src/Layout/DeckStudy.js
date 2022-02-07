@@ -2,14 +2,15 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Card from "./Card";
 
+// use params and readDeck(:id)?
+
 function DeckStudy({ decks }) {
   const { deckId } = useParams();
 
   const deck = decks.find((deck) => deck.id === Number(deckId));
 
-  if (!deck) {
-    return null;
-  }
+  if (!deck) return null;
+  
   const minCards = 3;
   if (deck.cards.length >= minCards) {
     return (

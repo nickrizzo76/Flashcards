@@ -40,6 +40,60 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
+    },
+    {
+      "front": "Test",
+      "back": "Test",
+      "id": 6,
+      "deckId": 1
+    },
+    {
+      "front": "Test card in React Router",
+      "back": "some text",
+      "id": 7,
+      "deckId": 2
+    },
+    {
+      "front": "More ",
+      "back": "something",
+      "id": 8,
+      "deckId": 2
+    },
+    {
+      "front": "eaoijoefij",
+      "back": "aoeijaefa",
+      "id": 9,
+      "deckId": 2
+    },
+    {
+      "front": "eafea",
+      "back": "afeae",
+      "id": 10,
+      "deckId": 2
+    },
+    {
+      "front": "faeef",
+      "back": "aefa",
+      "id": 11,
+      "deckId": 2
+    },
+    {
+      "front": "eafe",
+      "back": "aefe",
+      "id": 12,
+      "deckId": 2
+    },
+    {
+      "front": "Hello",
+      "back": "Hello Test",
+      "deckId": 2,
+      "id": 13
+    },
+    {
+      "front": "eafeoij",
+      "back": "efaefa",
+      "deckId": 2,
+      "id": 14
     }
   ]
 }

@@ -22,7 +22,6 @@ function DeckCreate({lastDeckId}) {
     event.preventDefault();
     //history.goBack();
 
-    console.log(deckData)
     createDeck(deckData);
     history.push("/");
   };

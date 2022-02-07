@@ -3,40 +3,43 @@ import Header from "./Header";
 import DeckList from "./DeckList";
 import NotFound from "./NotFound";
 import CreateDeckButton from "./CreateDeckButton";
-import Breadcrumb from "./Breadcrumb";
-import { Route, Switch, Link } from "react-router-dom";
-import { listDecks } from "../utils/api";
+import { Route, Switch } from "react-router-dom";
 import DeckCreate from "./DeckCreate";
 import DeckStudy from "./DeckStudy";
+import DeckEdit from "./DeckEdit";
+import DeckView from "./DeckView";
+import CardAdd from "./CardAdd";
+import CardEdit from "./CardEdit";
 
 function Layout() {
-
-  const [decks, setDecks] = useState( [ {cards:[] } ] );
-  useEffect(() => {
-    async function loadData() {
-      const data = await listDecks();
-      setDecks(data)
-    }
-    loadData();
-  }, [])
-
-  const lastDeckId = decks.reduce((maxId, deck) => Math.max(maxId, deck.id), 0);
+  
 
   return (
     <>
       <Header />
       <div className="container">
         <Switch>
-          <Route exact={true} path="/">
-            <CreateDeckButton lastDeckId={lastDeckId} />
-            <DeckList decks={decks}/>
-          </Route>
           <Route path="/decks/new">
-            <Breadcrumb />
             <DeckCreate />
           </Route>
           <Route path="/decks/:deckId/study">
-            <DeckStudy decks={decks}/>
+            <DeckStudy />
+          </Route>
+          <Route path="/decks/:deckId/edit">
+            <DeckEdit />
+          </Route>
+          <Route path="/decks/:deckId/cards/new">
+            <CardAdd />
+          </Route>
+          <Route path="/decks/:deckId/cards/:cardId/edit">
+            <CardEdit />
+          </Route>
+          <Route exact={true} path="/decks/:deckId">
+            <DeckView />
+          </Route>
+          <Route exact={true} path="/">
+            <CreateDeckButton />
+            <DeckList />
           </Route>
           <Route>
             <NotFound />
