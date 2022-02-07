@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import { useParams, Link } from "react-router-dom";
 import Card from "./Card";
+import { readDeck } from "../utils/api";
 
 // use params and readDeck(:id)?
 
-function DeckStudy({ decks }) {
+function DeckStudy() {
   const { deckId } = useParams();
+  const [deck, setDeck] = useState({ cards: [] });
 
-  const deck = decks.find((deck) => deck.id === Number(deckId));
+  useEffect(() => {
+    readDeck(deckId).then(setDeck);
+  }, [deckId])
+
 
   if (!deck) return null;
-  
+
   const minCards = 3;
   if (deck.cards.length >= minCards) {
     return (

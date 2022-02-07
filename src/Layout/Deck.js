@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 function Deck({ deck, deleteHandler }) {
   return (
     <>
-      <h1>
-        {deck.name} -- {deck.cards.length} cards
-      </h1>
-      <p>
-        {deck.id} {deck.description}{" "}
-      </p>
+      <h5>{deck.name}</h5>
+      <small>{deck.cards.length} cards</small>
+      <p>{deck.description}</p>
       <Link to={`/decks/${deck.id}`}>
         <button type="button" className="btn btn-secondary">
           View
