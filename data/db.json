@@ -19,8 +19,8 @@
   "cards": [
     {
       "id": 1,
-      "front": "Differentiate between Real DOM and Virtual DOM.",
-      "back": "Virtual DOM updates are faster but do not directly update the HTML",
+      "front": "Hello",
+      "back": "Yea right",
       "deckId": 1
     },
     {
@@ -64,6 +64,12 @@
       "back": "aefa",
       "deckId": 1,
       "id": 10
+    },
+    {
+      "front": "afeafe",
+      "back": "aefea",
+      "deckId": 1,
+      "id": 11
     }
   ]
 }
