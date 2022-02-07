@@ -17,8 +17,6 @@ function DeckList() {
     if(confirmed) deleteDeck(deckId).then(loadDecks)
   }
 
-  const lastDeckId = decks.reduce((maxId, deck) => Math.max(maxId, deck.id), 0);
-
   const deckList = decks.map( deck => <Deck key={deck.id} deck={deck} deleteHandler={deleteHandler}/>);
   return (
     <>
