@@ -13,7 +13,6 @@ function DeckStudy() {
     readDeck(deckId).then(setDeck);
   }, [deckId]);
 
-  if (!deck) return null;
 
   const breadcrumb =
     <nav aria-label="breadcrumb">

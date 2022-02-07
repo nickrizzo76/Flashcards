@@ -20,14 +20,13 @@ function DeckCreate({lastDeckId}) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    //history.goBack();
-
-    createDeck(deckData);
-    history.push("/");
+    event.stopPropagation();
+    createDeck(deckData).then((newDeck) => history.push(`/decks/${newDeck.id}`));
+    
   };
 
   return (
-    <>
+    <div>
       <h1>Create Deck</h1>
       <form name="create-deck" onSubmit={handleSubmit}>
         <p>Name</p>
@@ -52,7 +51,7 @@ function DeckCreate({lastDeckId}) {
           placeholder="Description"
           required={true}
         ></textarea>
-        <Link to={`/decks`}>
+        <Link to={`/`}>
           <button type="button" className="btn btn-secondary">
             Cancel
           </button>
@@ -61,7 +60,7 @@ function DeckCreate({lastDeckId}) {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

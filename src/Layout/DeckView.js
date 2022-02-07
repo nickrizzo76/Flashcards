@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteCard, deleteDeck, readDeck } from "../utils/api";
 import CardView from "./CardView";
-import DeckEdit from "./DeckEdit";
 
 function DeckView() {
   const { deckId } = useParams();
@@ -31,11 +30,13 @@ function DeckView() {
   }
 
   const cardList = deck.cards.map((card) => (
-    <CardView card={card} deleteCardHandler={deleteCardHandler} />
+    <li key={card.id}>
+      <CardView card={card} deleteCardHandler={deleteCardHandler} />
+    </li>
   ));
 
   return (
-    <>
+    <div>
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -44,8 +45,8 @@ function DeckView() {
             </Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-          {deck.name}
-        </li>
+            {deck.name}
+          </li>
         </ol>
       </nav>
       <h5>{deck.name}</h5>
@@ -73,8 +74,8 @@ function DeckView() {
         Delete
       </button>
       <h2>Cards</h2>
-      {cardList}
-    </>
+      <ul className="list-group mt-2" style={{ listStyleType: "none" }}>{cardList}</ul>
+    </div>
   );
 }
 

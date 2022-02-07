@@ -17,11 +17,16 @@ function DeckList() {
     if(confirmed) deleteDeck(deckId).then(loadDecks)
   }
 
-  const deckList = decks.map( deck => <Deck key={deck.id} deck={deck} deleteHandler={deleteHandler}/>);
+  const deckList = decks.map( deck => (
+    <li key={deck.id}>
+      <Deck deck={deck} deleteHandler={deleteHandler}/>
+    </li>
+    )
+  )
   return (
-    <>
-      {deckList}
-    </>
+    <div>
+      <ul className="list-group mt-2" style={{ listStyleType: "none" }}>{deckList}</ul>
+    </div>
   );
 }
 

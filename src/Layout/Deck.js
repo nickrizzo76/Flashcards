@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Deck({ deck, deleteHandler }) {
   return (
-    <>
+    <div>
       <h5>{deck.name}</h5>
       <small>{deck.cards.length} cards</small>
       <p>{deck.description}</p>
@@ -19,7 +19,7 @@ function Deck({ deck, deleteHandler }) {
         </button>
       </Link>
       <button onClick={() => deleteHandler(deck.id)} type="button" className="btn btn-danger">Delete</button>
-    </>
+    </div>
   );
 }
 

@@ -37,7 +37,7 @@ function Card({ cards }) {
   );
 
   return (
-    <>
+    <div>
       <h5>
         Card {cardIndex + 1} of {cards.length}
       </h5>
@@ -46,7 +46,7 @@ function Card({ cards }) {
         Flip
       </button>
       {cardHasBeenStudied ? nextButton : null}
-    </>
+    </div>
   );
 }
 

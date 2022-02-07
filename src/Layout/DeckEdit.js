@@ -46,7 +46,7 @@ function DeckEdit() {
   );
 
   return (
-    <>
+    <div>
       {breadcrumb}
       <h5>Edit Deck</h5>
       <form name="edit-deck" onSubmit={handleSubmit}>
@@ -77,7 +77,7 @@ function DeckEdit() {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

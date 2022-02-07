@@ -20,7 +20,7 @@ function CardAdd({cards = []}) {
       setDeck(loadedDeck);
     }
     loadDeck();
-  }, []);
+  }, [deckId]);
 
   const handleChange = ({ target }) => {
     setCard({
@@ -31,13 +31,12 @@ function CardAdd({cards = []}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const lastCardId = cards.reduce((maxId, card) => Math.max(maxId, card.id), 0);
-    
+    event.stopPropagation();
+
     const newCard = {
         front: card.front,
         back: card.back
     }
-    //newCard.id = lastCardId;
 
     saveCard(newCard);
   };
@@ -47,7 +46,6 @@ function CardAdd({cards = []}) {
       setCard(initialCardState);
   }
   
-  if (!deck) return null; // needed?
 
   return (
     <>

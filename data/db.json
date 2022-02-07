@@ -11,8 +11,8 @@
       "id": 2
     },
     {
-      "description": "Test",
-      "name": "Test",
+      "description": "eatet",
+      "name": "teat",
       "id": 3
     }
   ],
@@ -46,6 +46,24 @@
       "back": "some text",
       "id": 7,
       "deckId": 2
+    },
+    {
+      "front": "Adding a card",
+      "back": "Description for said card",
+      "deckId": 2,
+      "id": 8
+    },
+    {
+      "front": "eafaef",
+      "back": "afefe",
+      "deckId": 1,
+      "id": 9
+    },
+    {
+      "front": "aefeaf",
+      "back": "aefa",
+      "deckId": 1,
+      "id": 10
     }
   ]
 }
