@@ -3,8 +3,9 @@
 */
 
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";
+import CardForm from "./CardForm";
 
 function CardAdd() {
   const initialCardState = {
@@ -16,6 +17,7 @@ function CardAdd() {
   const { deckId } = useParams();
   const [card, setCard] = useState(initialCardState);
   const [deck, setDeck] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function loadDeck() {
@@ -25,16 +27,9 @@ function CardAdd() {
     loadDeck();
   }, [deckId]);
 
-  const handleChange = ({ target }) => {
-    setCard({
-      ...card,
-      [target.name]: target.value,
-    });
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const newCard = {
       front: card.front,
       back: card.back,
@@ -42,6 +37,10 @@ function CardAdd() {
 
     saveCard(newCard);
   };
+
+  function doneHandler() {
+    history.push(`decks/${deck.id}`);
+  }
 
   async function saveCard(newCard) {
     await createCard(deckId, newCard);
@@ -71,38 +70,11 @@ function CardAdd() {
         <span>Add Card</span>
       </h1>
 
-      <form name="add-card" onSubmit={handleSubmit}>
-        <p>Name</p>
-        <textarea
-          id="card-front"
-          name="front"
-          type="text"
-          value={card.front}
-          onChange={handleChange}
-          className="form-control"
-          placeholder="Front side of card"
-          required={true}
-        />
-        <p>Description</p>
-        <textarea
-          id="card-back"
-          name="back"
-          type="text"
-          value={card.back}
-          onChange={handleChange}
-          className="form-control"
-          placeholder="Back side of card"
-          required={true}
-        ></textarea>
-        <Link to={`/decks/${deckId}`}>
-          <button type="button" className="btn btn-secondary">
-            Done
-          </button>
-        </Link>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
+      <CardForm
+        handleSubmit={handleSubmit}
+        handleDone={doneHandler}
+        initialState={card}
+      />
     </div>
   );
 }

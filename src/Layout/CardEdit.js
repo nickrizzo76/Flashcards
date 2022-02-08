@@ -26,7 +26,6 @@ function CardEdit() {
     history.goBack();
   }
 
-  console.log("Card Edit", card)
   const form = card.id ? (
     <CardForm
         handleSubmit={handleSubmit}
@@ -35,7 +34,7 @@ function CardEdit() {
         doneButtonLabel={"Cancel"}
       />
   ) : (
-      <p>Nothing yet</p>
+      null
   )
   return (
     <div>
