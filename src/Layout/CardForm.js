@@ -1,3 +1,6 @@
+/*
+  Displays a form for adding and editing Cards
+*/
 import React, { useState, useEffect } from "react";
 
 function CardForm({
