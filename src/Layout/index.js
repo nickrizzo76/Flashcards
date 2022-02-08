@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "./Header";
 import DeckList from "./DeckList";
 import NotFound from "./NotFound";

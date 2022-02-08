@@ -59,7 +59,7 @@ function DeckStudy() {
   return (
     <div>
       {headerContent}
-      {deck.cards.length >= minCards ? <Card cards={deck.cards} /> : notEnoughCards}
+      {deck.cards.length >= minCards ? <Card /> : notEnoughCards}
     </div>
   );
 

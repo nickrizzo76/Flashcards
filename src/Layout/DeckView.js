@@ -1,3 +1,6 @@
+/*
+    Displays a Deck and its Cards
+*/
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { deleteCard, deleteDeck, readDeck } from "../utils/api";
@@ -29,6 +32,7 @@ function DeckView() {
     if (confirmed) deleteCard(cardId).then(loadDeck);
   }
 
+  // list all the cards of a deck
   const cardList = deck.cards.map((card) => (
     <li key={card.id}>
       <CardView card={card} deleteCardHandler={deleteCardHandler} />
@@ -74,7 +78,9 @@ function DeckView() {
         Delete
       </button>
       <h2>Cards</h2>
-      <ul className="list-group mt-2" style={{ listStyleType: "none" }}>{cardList}</ul>
+      <ul className="list-group mt-2" style={{ listStyleType: "none" }}>
+        {cardList}
+      </ul>
     </div>
   );
 }
