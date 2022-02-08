@@ -1,3 +1,7 @@
+/*
+    Displays a singular Card to be shown in a list of Deck cards
+*/
+
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom"
 

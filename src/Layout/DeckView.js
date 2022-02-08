@@ -1,5 +1,9 @@
 /*
-    Displays a Deck and its Cards
+    Displays:
+    - Deck 'Title' and 'Description'
+        - Deck actions: Edit/Study/Add Cards/Delete
+    - All the Deck's Cards 'Front' and 'Back'
+        - Card actions: Edit/Delete
 */
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";

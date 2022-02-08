@@ -1,3 +1,6 @@
+/*
+    Displays Card editing form
+*/
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { readCard, updateCard, readDeck } from "../utils/api";

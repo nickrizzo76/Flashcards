@@ -1,3 +1,6 @@
+/*
+  Displays a button that takes user to Deck creation screen
+*/
 import React from "react";
 import { Link } from "react-router-dom";
 

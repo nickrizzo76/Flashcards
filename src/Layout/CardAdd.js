@@ -1,3 +1,7 @@
+/*
+    Displays Card adding form
+*/
+
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";

@@ -1,5 +1,5 @@
 /*
-  Main landing page that lists all of the Decks
+  Displays main landing page that lists all of the user's Decks
 */
 
 import React, { useState, useEffect } from "react";

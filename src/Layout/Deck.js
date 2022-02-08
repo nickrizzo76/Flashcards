@@ -1,3 +1,6 @@
+/*
+  Displays Deck information and View/Study actions
+*/
 import React from "react";
 import { Link } from "react-router-dom";
 

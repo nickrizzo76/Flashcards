@@ -1,5 +1,6 @@
 /*
-  Displays deck, cards, and card actions for the deck
+  - Displays Deck and its Cards for studying. Cards are shown one at a time.
+  - Displays option to add Cards if the Deck has too few
 */
 
 import React, { useEffect, useState } from "react";
