@@ -1,3 +1,7 @@
+/*
+  Main landing page that lists all of the Decks
+*/
+
 import React, { useState, useEffect } from "react";
 import Deck from "./Deck";
 import { deleteDeck, listDecks } from "../utils/api";
