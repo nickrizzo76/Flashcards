@@ -34,15 +34,16 @@ function DeckStudy() {
   const minCards = 3;
   if (deck.cards.length >= minCards) {
     return (
-      <>
+      <div>
         {breadcrumb}
-        <h1>Study: {deck.name}</h1>
+        <h1>{deck.name}: Study</h1>
         <Card cards={deck.cards} />
-      </>
+      </div>
     );
   }
   return (
-    <>
+    <div>
+      {breadcrumb}
       <h1>{deck.name}: Study</h1>
       <h5>Not enough cards.</h5>
       <p>
@@ -55,7 +56,7 @@ function DeckStudy() {
           Add Cards
         </button>
       </Link>
-    </>
+    </div>
   );
 }
 

@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";
 
 function CardAdd() {
-
   const initialCardState = {
     front: "",
     back: "",
@@ -31,25 +30,28 @@ function CardAdd() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     const newCard = {
-        front: card.front,
-        back: card.back
-    }
+      front: card.front,
+      back: card.back,
+    };
 
     saveCard(newCard);
   };
 
   async function saveCard(newCard) {
-      await createCard(deckId, newCard);
-      setCard(initialCardState);
+    await createCard(deckId, newCard);
+    setCard(initialCardState);
   }
-  
 
   return (
-    <>
-      <h1>{deck.name}: Add Card</h1>
+    <div>
+      <h1>
+        <span>{deck.name}</span>
+        <span>: </span>
+        <span>Add Card</span>
+      </h1>
+
       <form name="add-card" onSubmit={handleSubmit}>
         <p>Name</p>
         <textarea
@@ -82,7 +84,7 @@ function CardAdd() {
           Save
         </button>
       </form>
-    </>
+    </div>
   );
 }
 
