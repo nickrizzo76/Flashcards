@@ -1,5 +1,5 @@
 /*
-
+  Displays deck, cards, and card actions for the deck
 */
 
 import React, { useEffect, useState } from "react";
@@ -16,6 +16,7 @@ function DeckStudy() {
     readDeck(deckId).then(setDeck);
   }, [deckId]);
 
+  // breadcrumb + deck information
   const headerContent = (
     <div>
       <nav aria-label="breadcrumb">
@@ -38,6 +39,7 @@ function DeckStudy() {
     </div>
   );
 
+  // tells user there aren't enough cards in the deck + displays option to add cards
   const notEnoughCards = (
     <div>
       <h5>Not enough cards.</h5>
