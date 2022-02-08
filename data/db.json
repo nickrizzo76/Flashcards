@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "front": "How do you modify the state of a different React component?",
+      "front": "How do you modify the state of a different React component?  By modifying this card!!!",
       "back": "Not at all! State is visible to the component only.",
       "deckId": 1
     },
