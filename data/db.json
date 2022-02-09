@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "front": "How do you modify the state of a different React component?  By modifying this card!!!",
+      "front": "How do you modify the state of a different React component?",
       "back": "Not at all! State is visible to the component only.",
       "deckId": 1
     },
@@ -41,12 +41,6 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
-    },
-    {
-      "front": "hello",
-      "back": "hello again",
-      "id": 6,
-      "deckId": 1
     }
   ]
 }

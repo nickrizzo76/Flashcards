@@ -9,39 +9,39 @@ import { readDeck } from "../../utils/api";
 
 function Card() {
   const { deckId } = useParams();
-  const [deck, setDeck] = useState({ cards: [] });
-  const [cardIndex, setCardIndex] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [cardHasBeenStudied, setCardHasBeenStudied] = useState(false);
+  const [state, setState] = useState({
+    deck: { cards: [] },
+    cardIndex: 0,
+    isFlipped: false,
+    hasBeenStudied: false
+  })
   const history = useHistory();
 
 
   useEffect(loadDeck, [deckId]);
   function loadDeck() {
-    readDeck(deckId).then(setDeck);
+    readDeck(deckId).then((deck)=> setState( {...state, deck: deck } ));
   }
 
   const flipHandler = () => {
-    setCardHasBeenStudied(true);
-    setIsFlipped(!isFlipped);
+    setState({...state, hasBeenStudied: !state.hasBeenStudied, isFlipped: !state.isFlipped })
   };
 
   const nextCardHandler = () => {
-    setIsFlipped(false);
-    setCardHasBeenStudied(false);
-    const nextCardIndex = cardIndex + 1;
-    if(nextCardIndex < deck.cards.length) return setCardIndex(nextCardIndex);
+    setState({...state, hasBeenStudied: false, isFlipped: false })
+    const nextCardIndex = state.cardIndex + 1;
+    if(nextCardIndex < state.deck.cards.length) return setState( {...state, cardIndex: nextCardIndex} )
     const restartCards = window.confirm(`Restart cards?\n\nClick 'cancel' to return to the home page.`);
     
-    if(restartCards) return setCardIndex(0);
+    if(restartCards) return setState( {...state, cardIndex: 0} )
     history.push('/');
   }
 
   // get the current card's 'front' or 'back' content to be displayed
-  const card = deck.cards[cardIndex];
+  const card = state.deck.cards[state.cardIndex];
   let content = null;
   if(card) {
-    content = isFlipped ? card.back : card.front
+    content = state.isFlipped ? card.back : card.front
   }
 
   const nextButton = (
@@ -53,13 +53,13 @@ function Card() {
   return (
     <div>
       <h5>
-        Card {cardIndex + 1} of {deck.cards.length}
+        Card {state.cardIndex + 1} of {state.deck.cards.length}
       </h5>
       <p>{content}</p>
       <button onClick={flipHandler} type="button" className="btn btn-primary">
         Flip
       </button>
-      {cardHasBeenStudied ? nextButton : null}
+      {state.hasBeenStudied ? nextButton : null}
     </div>
   );
 }
