@@ -32,7 +32,7 @@ function CardAdd() {
   };
 
   function doneHandler() {
-    history.push(`decks/${deck.id}`);
+    history.push(`/decks/${deck.id}`);
   }
 
   async function saveCard(newCard) {
