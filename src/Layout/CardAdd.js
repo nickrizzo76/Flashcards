@@ -27,14 +27,7 @@ function CardAdd() {
     loadDeck();
   }, [deckId]);
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newCard = {
-      front: card.front,
-      back: card.back,
-    };
-
+  function handleSubmit(newCard) {
     saveCard(newCard);
   };
 

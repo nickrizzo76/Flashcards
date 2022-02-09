@@ -1,7 +1,7 @@
 /*
   Displays a form for adding and editing Cards
 */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function CardForm({
   handleSubmit,
