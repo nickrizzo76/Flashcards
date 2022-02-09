@@ -5,8 +5,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Card from "./Card";
-import { readDeck } from "../utils/api";
+import Card from "../Card/Card";
+import { readDeck } from "../../utils/api";
 
 function DeckStudy() {
   const { deckId } = useParams();

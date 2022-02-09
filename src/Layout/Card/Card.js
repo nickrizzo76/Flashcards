@@ -4,7 +4,7 @@
 */
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { readDeck } from "../utils/api";
+import { readDeck } from "../../utils/api";
 
 
 function Card() {

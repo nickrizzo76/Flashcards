@@ -7,8 +7,8 @@
 */
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { deleteCard, deleteDeck, readDeck } from "../utils/api";
-import CardView from "./CardView";
+import { deleteCard, deleteDeck, readDeck } from "../../utils/api";
+import CardView from "../Card/CardView";
 
 function DeckView() {
   const { deckId } = useParams();
